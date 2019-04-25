@@ -1,0 +1,26 @@
+server:
+   port: 8085
+   
+spring:
+   datasource:
+      url: jdbc:postgresql://127.0.0.1:5432/allendb
+      name: allendb
+      username: allen
+      password: allen
+      initialization-mode: never
+      
+   jpa:
+      properties:
+         hibernate:
+            jdbc:
+               lob:
+                  non_contextual_creation: true
+                
+logging:
+     level:
+        root: WARN        
+        org:
+           springframework:
+              security: INFO
+              web:    
+                 servlet: DEBUG      

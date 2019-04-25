@@ -109,7 +109,7 @@ public class DozerBeanMapperFactoryBean extends
                         .getMetadataReader(resource);
                 ClassMetadata classMetadata = metadataReader.getClassMetadata();
                 if (!classMetadata.getClassName().startsWith(
-						"com.atzkarl")
+                        "com.atzkarl.framework")
                         && !classMetadata.isAbstract()
                         && !classMetadata.isInterface()) {
                     dtoClasses.add(ClassUtils.forName(classMetadata

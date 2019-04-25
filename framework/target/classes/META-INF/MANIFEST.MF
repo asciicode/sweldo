@@ -1,9 +1,9 @@
 Manifest-Version: 1.0
 Implementation-Title: sweldo-framework
 Implementation-Version: 0.0.1-SNAPSHOT
-Built-By: Allen Catadman
+Built-By: allen
 Implementation-Vendor-Id: com.atzkarl
-Build-Jdk: 1.8.0_191
+Build-Jdk: 1.8.0_201
 Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
  ot-starter-parent/sweldo-framework
 Created-By: Maven Integration for Eclipse

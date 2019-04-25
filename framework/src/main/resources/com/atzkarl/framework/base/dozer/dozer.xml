@@ -1,0 +1,86 @@
+<mappings xmlns="http://dozer.sourceforge.net"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://dozer.sourceforge.net
+                      http://dozer.sourceforge.net/schema/beanmapping.xsd">
+
+  <!-- Joda-Time classes are immutable representations 
+  <configuration>
+    <copy-by-references>
+      <copy-by-reference>org.joda.time.*</copy-by-reference>
+    </copy-by-references>
+  </configuration>
+  -->
+  
+  <!--
+    Skip copying id and version field from source entity as they are managed
+    by application internally
+  
+  <mapping>
+    <class-a>com.atzkarl.framework.base.entity.BaseEntity</class-a>
+    <class-b>com.atzkarl.framework.base.entity.BaseEntity</class-b>
+    <field-exclude>
+      <a>id</a>
+      <b>id</b>
+    </field-exclude>
+    <field-exclude>
+      <a>version</a>
+      <b>version</b>
+    </field-exclude>
+  </mapping>
+  -->	
+  <!--
+    Skip copying id field from incoming DTO as it is managed by application
+    internally
+  -->
+  <mapping>
+    <class-a>com.atzkarl.framework.base.dto.BaseDTO</class-a>
+    <class-b>com.atzkarl.framework.base.entity.BaseEntity</class-b>
+    <field-exclude type="one-way">
+      <a>id</a>
+      <b>id</b>
+    </field-exclude>
+  </mapping>
+
+  <!--
+    Skip copying audit fields from incoming DTO as they are managed by
+    application internally
+  
+  <mapping>
+    <class-a>com.atzkarl.framework.base.dto.AuditableDTO</class-a>
+    <class-b>com.atzkarl.framework.base.entity.AuditableEntity</class-b>
+    <field-exclude type="one-way">
+      <a>createdBy</a>
+      <b>createdBy</b>
+    </field-exclude>
+    <field-exclude type="one-way">
+      <a>createdDate</a>
+      <b>createdDate</b>
+    </field-exclude>
+    <field-exclude type="one-way">
+      <a>lastUpdatedBy</a>
+      <b>lastUpdatedBy</b>
+    </field-exclude>
+    <field-exclude type="one-way">
+      <a>lastUpdatedDate</a>
+      <b>lastUpdatedDate</b>
+    </field-exclude>
+  </mapping>
+  -->	
+  <!--
+    Skip copying active field from incoming DTO as they are managed by
+    application internally
+  
+  <mapping>
+    <class-a>
+      com.atzkarl.framework.base.dto.AuditableDTOWithActiveIndicator
+    </class-a>
+    <class-b>
+      com.atzkarl.framework.base.entity.AuditableEntityWithActiveIndicator
+    </class-b>
+    <field-exclude type="one-way">
+      <a>active</a>
+      <b>active</b>
+    </field-exclude>
+  </mapping>
+  -->	
+</mappings>

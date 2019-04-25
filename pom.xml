@@ -10,6 +10,10 @@
 
 	<modules>
 		<module>framework</module>
+		<module>core-base-api</module>
+		<module>core-base-web</module>
+		<module>core-base-impl</module>
+		<module>core-base-application</module>
 	</modules>
   
 </project>
