@@ -13,13 +13,18 @@ public class ValidationConfig {
 
 	// TODO allen pls check : Explicit validator configuration
 	// https://stackoverflow.com/questions/12676299/spring-3-1-autowiring-does-not-work-inside-custom-constraint-validator
-	@Bean
-	ValidationService validationService(ResourcePatternResolver resourcePatternResolver) {
-		LocalValidatorFactoryBean validatorFactoryBean = new LocalValidatorFactoryBean();
-//		validatorFactoryBean.setMappingLocations(
-//				resourcePatternResolver.getResources("classpath:com/atzkarl/framework/base/validator/constraints.xml"));
-		ValidationServiceImpl validation = new ValidationServiceImpl();
-		validation.setValidatorFactory(validatorFactoryBean);
-		return validation;
-	}
+    @Bean
+    public LocalValidatorFactoryBean validatorFactory(ResourcePatternResolver resourcePatternResolver) {
+        LocalValidatorFactoryBean validatorFactoryBean = new LocalValidatorFactoryBean();
+        // validatorFactoryBean.setMappingLocations(
+        // resourcePatternResolver.getResources("classpath:com/atzkarl/framework/base/validator/constraints.xml"));
+        return validatorFactoryBean;
+    }
+
+    @Bean
+    public ValidationService validationService(ResourcePatternResolver resourcePatternResolver) {
+        ValidationServiceImpl validation = new ValidationServiceImpl();
+        validation.setValidatorFactory(validatorFactory(resourcePatternResolver));
+        return validation;
+    }
 }

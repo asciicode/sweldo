@@ -14,7 +14,7 @@
   <!--
     Skip copying id and version field from source entity as they are managed
     by application internally
-  
+  -->  
   <mapping>
     <class-a>com.atzkarl.framework.base.entity.BaseEntity</class-a>
     <class-b>com.atzkarl.framework.base.entity.BaseEntity</class-b>
@@ -27,7 +27,7 @@
       <b>version</b>
     </field-exclude>
   </mapping>
-  -->	
+	
   <!--
     Skip copying id field from incoming DTO as it is managed by application
     internally

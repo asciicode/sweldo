@@ -1,23 +1,21 @@
 package com.atzkarl.core.base.rest.model;
 
+import java.math.BigDecimal;
+
 import com.atzkarl.framework.base.rest.model.BaseModel;
 
 public class EmployeeModel extends BaseModel {
 
 	private static final long serialVersionUID = 1L;
 
-	private String internalId;
 	private Long organisationId;
 	private String firstNames;
 	private String surname;
-
-	public String getInternalId() {
-		return internalId;
-	}
-
-	public void setInternalId(String internalId) {
-		this.internalId = internalId;
-	}
+    private String jobDescription;
+    private BigDecimal rate;
+    private BigDecimal otmultiplier;
+    private BigDecimal sss;
+    private BigDecimal philhealth;
 
 	public Long getOrganisationId() {
 		return organisationId;
@@ -42,4 +40,44 @@ public class EmployeeModel extends BaseModel {
 	public void setSurname(String surname) {
 		this.surname = surname;
 	}
+
+    public String getJobDescription() {
+        return jobDescription;
+    }
+
+    public void setJobDescription(String jobDescription) {
+        this.jobDescription = jobDescription;
+    }
+
+    public BigDecimal getRate() {
+        return rate;
+    }
+
+    public void setRate(BigDecimal rate) {
+        this.rate = rate;
+    }
+
+    public BigDecimal getOtmultiplier() {
+        return otmultiplier;
+    }
+
+    public void setOtmultiplier(BigDecimal otmultiplier) {
+        this.otmultiplier = otmultiplier;
+    }
+
+    public BigDecimal getSss() {
+        return sss;
+    }
+
+    public void setSss(BigDecimal sss) {
+        this.sss = sss;
+    }
+
+    public BigDecimal getPhilhealth() {
+        return philhealth;
+    }
+
+    public void setPhilhealth(BigDecimal philhealth) {
+        this.philhealth = philhealth;
+    }
 }

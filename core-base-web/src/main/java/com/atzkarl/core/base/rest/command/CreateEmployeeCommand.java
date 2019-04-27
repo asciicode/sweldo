@@ -12,9 +12,9 @@ import com.atzkarl.core.base.service.EmployeeService;
 
 public class CreateEmployeeCommand implements Callable<ResponseEntity<EmployeeModel>> {
 
-	EmployeeModel employeeModel;
-	EmployeeDTOModelConverter employeeDTOModelConverter;
-	EmployeeService employeeService;
+    private EmployeeModel employeeModel;
+    private EmployeeDTOModelConverter employeeDTOModelConverter;
+    private EmployeeService employeeService;
 	public CreateEmployeeCommand(EmployeeModel employeeModel, EmployeeDTOModelConverter employeeDTOModelConverter,
 			EmployeeService employeeService) {
 		this.employeeModel = employeeModel;

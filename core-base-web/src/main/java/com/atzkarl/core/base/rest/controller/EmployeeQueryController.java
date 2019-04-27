@@ -1,5 +1,6 @@
 package com.atzkarl.core.base.rest.controller;
 
+import java.util.List;
 import java.util.concurrent.Callable;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,12 +12,17 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.atzkarl.core.base.dto.model.converter.EmployeeDTOModelConverter;
+import com.atzkarl.core.base.rest.command.FindAllEmployeeQuery;
+import com.atzkarl.core.base.rest.model.EmployeeModel;
+import com.atzkarl.core.base.service.EmployeeService;
 
 @RestController
 @RequestMapping(API.VERSIONED_PATH + "/{orgNumber}/employee")
 public class EmployeeQueryController {
 	@Autowired
 	private EmployeeDTOModelConverter employeeDTOModelConverter;
+    @Autowired
+    private EmployeeService employeeService;
 
 	@RequestMapping(method = RequestMethod.GET, value = "/{id}")
 	public Callable<ResponseEntity<?>> findOne(@PathVariable String id) {
@@ -28,4 +34,9 @@ public class EmployeeQueryController {
 			}
 		};
 	}
+
+    @RequestMapping(method = RequestMethod.GET, value = "/list")
+    public Callable<ResponseEntity<List<EmployeeModel>>> findAll() {
+        return new FindAllEmployeeQuery(employeeDTOModelConverter, employeeService);
+    }
 }
