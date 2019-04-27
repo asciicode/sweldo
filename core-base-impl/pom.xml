@@ -35,6 +35,11 @@
 			<artifactId>sweldo-framework</artifactId>
 			<version>${project.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>com.atzkarl</groupId>
+			<artifactId>sweldo-core-base-api</artifactId>
+			<version>${project.version}</version>
+		</dependency>
 	</dependencies>
 
 	<dependencyManagement>

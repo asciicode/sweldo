@@ -11,7 +11,8 @@ import org.springframework.security.oauth2.config.annotation.web.configurers.Res
 public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
     @Override
     public void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests().antMatchers("/api/v1/**").authenticated().antMatchers("/public/**").permitAll();
+		http.authorizeRequests().antMatchers("/api/**/v1/**").permitAll();
+//		http.authorizeRequests().antMatchers("/api/**/v1/**").authenticated().antMatchers("/public/**").permitAll();
         // http
         // These paths are secured by this SecurityFilterChain
         // .requestMatchers().antMatchers("/user", "/users").and()

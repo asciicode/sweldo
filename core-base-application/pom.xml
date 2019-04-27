@@ -43,9 +43,19 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+	      <groupId>com.atzkarl</groupId>
+	      <artifactId>sweldo-framework</artifactId>
+	      <version>${project.version}</version>
+	    </dependency>
 	    <dependency>
 	      <groupId>com.atzkarl</groupId>
 	      <artifactId>sweldo-core-base-impl</artifactId>
+	      <version>${project.version}</version>
+	    </dependency>
+	    <dependency>
+	      <groupId>com.atzkarl</groupId>
+	      <artifactId>sweldo-core-base-web</artifactId>
 	      <version>${project.version}</version>
 	    </dependency>
 	</dependencies>
