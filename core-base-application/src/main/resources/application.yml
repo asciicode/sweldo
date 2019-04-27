@@ -15,12 +15,19 @@ spring:
             jdbc:
                lob:
                   non_contextual_creation: true
-                
+         org:
+            hibernate:
+               envers:
+                  audit_table_suffix: _H
+                  revision_field_name: AUDIT_REVISION
+                  revision_type_field_name: ACTION_TYPE
+                  store_data_at_delete: true
+                            
 logging:
      level:
-        root: WARN        
+        root: DEBUG        
         org:
            springframework:
-              security: INFO
+              security: DEBUG
               web:    
                  servlet: DEBUG      

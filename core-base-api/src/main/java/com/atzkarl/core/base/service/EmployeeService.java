@@ -1,5 +1,7 @@
 package com.atzkarl.core.base.service;
 
-public interface EmployeeService {
+import com.atzkarl.core.base.dto.EmployeeDTO;
 
+public interface EmployeeService {
+	EmployeeDTO create(EmployeeDTO employeeDTO);
 }

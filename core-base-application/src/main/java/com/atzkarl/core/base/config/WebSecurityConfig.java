@@ -1,5 +1,7 @@
 package com.atzkarl.core.base.config;
 
+import javax.servlet.Filter;
+
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -31,7 +33,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     // auth.userDetailsService(customUserDetailsService);
     // }
 	@Bean
-	public FilterRegistrationBean corsFilter() {
+	public FilterRegistrationBean<Filter> corsFilter() {
 		UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
 		CorsConfiguration config = new CorsConfiguration();
 		config.setAllowCredentials(true);
@@ -39,7 +41,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		config.addAllowedHeader("*");
 		config.addAllowedMethod("*");
 		source.registerCorsConfiguration("/**", config);
-		FilterRegistrationBean bean = new FilterRegistrationBean(new CorsFilter(source));
+		FilterRegistrationBean<Filter> bean = new FilterRegistrationBean<>(new CorsFilter(source));
 		bean.setOrder(0);
 		return bean;
 	}

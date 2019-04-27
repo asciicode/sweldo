@@ -13,8 +13,8 @@ public class DozerConfig {
     @Bean(initMethod = "init")
     public DozerBeanMapperFactoryBean dozerMapper(ResourcePatternResolver resourcePatternResolver) throws IOException {
         DozerBeanMapperFactoryBean factoryBean = new DozerBeanMapperFactoryBean();
-        // factoryBean.setMappingFiles(
-        // resourcePatternResolver.getResources("classpath:com/atzkarl/framework/base/dozer/dozer.xml"));
+		factoryBean.setMappingFiles(
+				resourcePatternResolver.getResources("classpath:com/atzkarl/framework/base/dozer/dozer.xml"));
         return factoryBean;
     }
 }

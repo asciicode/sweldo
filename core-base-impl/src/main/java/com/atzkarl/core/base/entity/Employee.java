@@ -1,14 +1,27 @@
-package com.atzkarl.core.base.rest.model;
+package com.atzkarl.core.base.entity;
 
-import com.atzkarl.framework.base.rest.model.BaseModel;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
-public class EmployeeModel extends BaseModel {
+import org.hibernate.envers.Audited;
+
+import com.atzkarl.framework.base.entity.AuditableEntity;
+
+@Audited
+@Entity
+@Table(name = "employee")
+public class Employee extends AuditableEntity {
 
 	private static final long serialVersionUID = 1L;
 
+	@Column(name = "internal_id")
 	private String internalId;
+	@Column(name = "organisation_id")
 	private Long organisationId;
+	@Column(name = "first_names")
 	private String firstNames;
+	@Column(name = "surname")
 	private String surname;
 
 	public String getInternalId() {
@@ -42,4 +55,5 @@ public class EmployeeModel extends BaseModel {
 	public void setSurname(String surname) {
 		this.surname = surname;
 	}
+
 }

@@ -43,8 +43,8 @@
 
   <!--
     Skip copying audit fields from incoming DTO as they are managed by
-    application internally
-  
+    application internally 	
+  -->
   <mapping>
     <class-a>com.atzkarl.framework.base.dto.AuditableDTO</class-a>
     <class-b>com.atzkarl.framework.base.entity.AuditableEntity</class-b>
@@ -65,7 +65,7 @@
       <b>lastUpdatedDate</b>
     </field-exclude>
   </mapping>
-  -->	
+  
   <!--
     Skip copying active field from incoming DTO as they are managed by
     application internally
