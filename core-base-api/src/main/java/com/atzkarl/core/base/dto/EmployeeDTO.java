@@ -5,12 +5,14 @@ import java.math.BigDecimal;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import com.atzkarl.core.base.constraint.validator.ValidOrganisationId;
 import com.atzkarl.framework.base.dto.BaseDTO;
 
 public class EmployeeDTO extends BaseDTO {
 
 	private static final long serialVersionUID = 1L;
 
+    @ValidOrganisationId
     @NotNull(message = "{javax.validation.constraints.NotNull.message}")
 	private Long organisationId;
     @NotNull(message = "{javax.validation.constraints.NotNull.message}")
