@@ -25,9 +25,9 @@ spring:
                             
 logging:
      level:
-        root: DEBUG        
+        root: WARN        
         org:
            springframework:
-              security: DEBUG
+              security: WARN
               web:    
                  servlet: DEBUG      

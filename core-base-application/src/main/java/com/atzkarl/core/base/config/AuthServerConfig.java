@@ -36,10 +36,10 @@ public class AuthServerConfig extends AuthorizationServerConfigurerAdapter {
     }
 
     @Override
-    public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
-        clients.inMemory().withClient("allen").secret(encoder.encode("welcome1")).authorizedGrantTypes("password", "refresh_token")
-                .scopes("all");
-    }
+	public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
+		clients.inMemory().withClient("allen").secret(encoder.encode(""))
+				.authorizedGrantTypes("password", "refresh_token").scopes("all");
+	}
 
     @Override
     public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {

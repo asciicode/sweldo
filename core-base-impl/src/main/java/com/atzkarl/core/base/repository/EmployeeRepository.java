@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.atzkarl.core.base.entity.Employee;
 
 @Repository
-public interface EmployeeRepository extends EmployeeRepositoryCustom, JpaRepository<Employee, Long> {
+public interface EmployeeRepository extends EmployeeRepositoryCustom<Employee>, JpaRepository<Employee, Long> {
 
 }

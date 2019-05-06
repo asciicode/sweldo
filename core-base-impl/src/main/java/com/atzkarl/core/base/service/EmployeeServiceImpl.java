@@ -3,6 +3,7 @@ package com.atzkarl.core.base.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.atzkarl.core.base.dto.EmployeeDTO;
@@ -31,6 +32,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public UpdatedEvent<EmployeeDTO> update(Long id, EmployeeDTO employeeDTO) {
+		validationService.validate(employeeDTO);
         Employee entity = getEntity(id);
         if (entity != null) {
             entity = converter.toEntity(employeeDTO, entity);
@@ -47,7 +49,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public List<EmployeeDTO> findAll() {
-        List<Employee> list = repository.findAll();
+		List<Employee> list = repository.findAll(Sort.by("surname"));
         return converter.fromEntities(list);
     }
 
