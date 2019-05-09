@@ -22,7 +22,8 @@ spring:
                   revision_field_name: AUDIT_REVISION
                   revision_type_field_name: ACTION_TYPE
                   store_data_at_delete: true
-                            
+   liquibase:
+      change-log: classpath:/db/changelog/changelog-master.xml                         
 logging:
      level:
         root: WARN        

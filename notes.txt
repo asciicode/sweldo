@@ -1,4 +1,5 @@
 curl -X POST -d "grant_type=password&username=allen&password=password" allen:welcome1@localhost:8085/oauth/token
+curl -X POST -d "grant_type=password&username=allen&password=password" allen@localhost:8085/oauth/token
 
 curl -X POST -d "grant_type=password&username=allen&password=password" --header "Authorization: Basic : allen:welcome1" http://localhost:8085/oauth/token
 
