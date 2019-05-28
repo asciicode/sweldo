@@ -120,3 +120,98 @@ create table REVINFO (
     primary key (REV)
 );
 
+DROP TABLE IF EXISTS calculation_rule cascade;
+CREATE TABLE calculation_rule
+(
+  id bigInt NOT NULL PRIMARY KEY,
+  code varchar(3) NOT NULL,
+  description varchar(100) NOT NULL,
+  is_rate_a_percentage boolean default false,
+  created_date_time timestamp NOT NULL,
+  created_by varchar(60) NOT NULL,
+  last_modified_date_time timestamp NOT NULL,
+  last_modified_by varchar(60) NOT NULL,
+  version int NOT NULL
+);
+
+drop table if exists pay_element cascade;
+drop table if exists pay_element_h cascade;
+DROP SEQUENCE IF EXISTS pay_element_id_seq;
+create table pay_element (
+	id  bigserial not null,	
+	code varchar(100) not null,
+	description varchar(255),
+	organisation_id bigint REFERENCES organisation,
+	priority integer,
+	multiplier numeric(20,10),
+	calculation_rule_id integer references calculation_rule,
+	rate numeric(20,6),
+	created_date_time timestamp NOT NULL,
+	created_by varchar(60) NOT NULL,
+	last_modified_date_time timestamp NOT NULL,
+	last_modified_by varchar(60) NOT NULL,
+	version int NOT NULL,
+	primary key (id)	
+);
+select  create_audit('pay_element');
+
+drop table if exists payroll cascade;
+drop table if exists payroll_h cascade;
+DROP SEQUENCE IF EXISTS payroll_id_seq;
+create table payroll (
+	id  bigserial not null,
+    payroll_number varchar(100),
+    payroll_status varchar(100),
+    pay_date date not null, 
+  	confirm_by_date date,
+	overtime boolean default false,
+	created_date_time timestamp NOT NULL,
+	created_by varchar(60) NOT NULL,
+	last_modified_date_time timestamp NOT NULL,
+	last_modified_by varchar(60) NOT NULL,
+	version int NOT NULL,
+	primary key (id)
+);
+select  create_audit('payroll');
+
+drop table if exists payroll_employee cascade;
+drop table if exists payroll_employee_h cascade;
+DROP SEQUENCE IF EXISTS payroll_employee_id_seq;
+CREATE TABLE payroll_employee
+(
+  id bigSerial NOT NULL PRIMARY KEY,
+  payroll_id bigint REFERENCES payroll,
+  employee_id bigint REFERENCES employee,
+  pay_period_end_date date,
+  pay_period_start_date date,  
+  created_date_time timestamp NOT NULL,
+  created_by varchar(60) NOT NULL,
+  last_modified_date_time timestamp NOT NULL,
+  last_modified_by varchar(60) NOT NULL,
+  version int NOT NULL,
+  UNIQUE (payroll_id, employee_id)
+);
+select  create_audit('payroll_employee');
+
+drop table if exists payroll_employee_transaction cascade;
+drop table if exists payroll_employee_transaction_h cascade;
+DROP SEQUENCE IF EXISTS payroll_employee_transaction_id_seq;
+CREATE TABLE payroll_employee_transaction
+(
+	id bigSerial NOT NULL PRIMARY KEY,
+	payroll_employee_id bigint not null REFERENCES payroll_employee,  
+	pay_element_id bigint not null references pay_element,
+	quantity numeric(20,4),
+	rate numeric(20,4),
+	amount numeric(30,4),
+	multiplier numeric(20,10),
+	
+	created_date_time timestamp NOT NULL,
+	created_by varchar(60) NOT NULL,
+	last_modified_date_time timestamp NOT NULL,
+	last_modified_by varchar(60) NOT NULL,
+	version int NOT NULL
+ );
+select  create_audit('payroll_employee_transaction'); 
+
+
