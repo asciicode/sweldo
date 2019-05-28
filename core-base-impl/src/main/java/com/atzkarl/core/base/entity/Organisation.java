@@ -4,11 +4,9 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
-import org.hibernate.envers.Audited;
-
 import com.atzkarl.framework.base.entity.BaseEntity;
 
-@Audited
+// @Audited
 @Entity
 @Table(name = "organisation")
 public class Organisation extends BaseEntity {

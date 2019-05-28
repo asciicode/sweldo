@@ -161,6 +161,7 @@ DROP SEQUENCE IF EXISTS payroll_id_seq;
 create table payroll (
 	id  bigserial not null,
     payroll_number varchar(100),
+    organisation_id  bigint not null REFERENCES organisation,
     payroll_status varchar(100),
     pay_date date not null, 
   	confirm_by_date date,
@@ -170,7 +171,8 @@ create table payroll (
 	last_modified_date_time timestamp NOT NULL,
 	last_modified_by varchar(60) NOT NULL,
 	version int NOT NULL,
-	primary key (id)
+	primary key (id),
+	CONSTRAINT payroll_idx1 UNIQUE (organisation_id, payroll_number)
 );
 select  create_audit('payroll');
 
