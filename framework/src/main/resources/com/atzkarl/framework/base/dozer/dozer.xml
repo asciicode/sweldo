@@ -35,10 +35,10 @@
   <mapping>
     <class-a>com.atzkarl.framework.base.dto.BaseDTO</class-a>
     <class-b>com.atzkarl.framework.base.entity.BaseEntity</class-b>
-    <field-exclude type="one-way">
+    <!-- <field-exclude type="one-way">
       <a>id</a>
       <b>id</b>
-    </field-exclude>
+    </field-exclude> -->
   </mapping>
 
   <!--

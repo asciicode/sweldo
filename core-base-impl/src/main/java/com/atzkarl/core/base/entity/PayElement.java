@@ -16,7 +16,8 @@ import com.atzkarl.framework.base.entity.AuditableEntity;
 
 @Audited
 @Entity
-@Table(name = "pay_element", uniqueConstraints = { @UniqueConstraint(columnNames = { "organisation_id", "code" }) })
+//@Table(name = "pay_element", uniqueConstraints = { @UniqueConstraint(columnNames = { "organisation_id", "code" }) })
+@Table(name = "pay_element")
 public class PayElement extends AuditableEntity {
 	private static final long serialVersionUID = 1L;
 

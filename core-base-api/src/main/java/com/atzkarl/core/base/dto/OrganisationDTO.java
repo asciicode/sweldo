@@ -1,5 +1,8 @@
 package com.atzkarl.core.base.dto;
 
+import javax.validation.constraints.NotNull;
+
+import com.atzkarl.core.base.constraint.validator.ValidOrganisationId;
 import com.atzkarl.framework.base.dto.BaseDTO;
 
 public class OrganisationDTO extends BaseDTO {
@@ -10,6 +13,12 @@ public class OrganisationDTO extends BaseDTO {
     private String name;
     private String legalName;
 
+    @ValidOrganisationId
+    @NotNull(message = "{javax.validation.constraints.NotNull.message}") 
+    public Long getId() {
+        return super.getId();
+    }
+    
     public String getOrganisationNumber() {
         return organisationNumber;
     }

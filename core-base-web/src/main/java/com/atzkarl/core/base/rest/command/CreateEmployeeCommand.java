@@ -23,7 +23,8 @@ public class CreateEmployeeCommand implements Callable<ResponseEntity<EmployeeMo
 	}
 	@Override
 	public ResponseEntity<EmployeeModel> call() throws Exception {
-		EmployeeDTO empDTO = employeeService.create(employeeDTOModelConverter.fromModel(employeeModel));
+		EmployeeDTO empDto = employeeDTOModelConverter.fromModel(employeeModel);
+		EmployeeDTO empDTO = employeeService.create(empDto);
 		return new ResponseEntity<EmployeeModel>(employeeDTOModelConverter.toModel(empDTO), HttpStatus.CREATED);
 	}
 

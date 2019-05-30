@@ -8,5 +8,4 @@ import com.atzkarl.framework.base.dto.entity.converter.BaseDTOEntityConverter;
 
 @Component
 public class EmployeeDTOEntityConverter extends BaseDTOEntityConverter<EmployeeDTO, Employee> {
-
 }

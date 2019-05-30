@@ -8,7 +8,7 @@ public class EmployeeModel extends BaseModel {
 
 	private static final long serialVersionUID = 1L;
 
-	private Long organisationId;
+	private OrganisationModel organisation;
 	private String firstNames;
 	private String surname;
     private String jobDescription;
@@ -17,12 +17,12 @@ public class EmployeeModel extends BaseModel {
     private BigDecimal sss;
     private BigDecimal philhealth;
 
-	public Long getOrganisationId() {
-		return organisationId;
+	public OrganisationModel getOrganisation() {
+		return organisation;
 	}
 
-	public void setOrganisationId(Long organisationId) {
-		this.organisationId = organisationId;
+	public void setOrganisation(OrganisationModel organisationModel) {
+		this.organisation = organisationModel;
 	}
 
 	public String getFirstNames() {

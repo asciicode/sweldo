@@ -4,6 +4,8 @@ import java.math.BigDecimal;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.hibernate.envers.Audited;
@@ -17,8 +19,7 @@ public class Employee extends AuditableEntity {
 
 	private static final long serialVersionUID = 1L;
 
-	@Column(name = "organisation_id")
-	private Long organisationId;
+	private Organisation organisation;
 	@Column(name = "first_names")
 	private String firstNames;
 	@Column(name = "surname")
@@ -74,14 +75,6 @@ public class Employee extends AuditableEntity {
         this.philhealth = philhealth;
     }
 
-    public Long getOrganisationId() {
-		return organisationId;
-	}
-
-	public void setOrganisationId(Long organisationId) {
-		this.organisationId = organisationId;
-	}
-
 	public String getFirstNames() {
 		return firstNames;
 	}
@@ -96,6 +89,16 @@ public class Employee extends AuditableEntity {
 
 	public void setSurname(String surname) {
 		this.surname = surname;
+	}
+
+	@ManyToOne
+    @JoinColumn(name = "organisation_id")
+	public Organisation getOrganisation() {
+		return organisation;
+	}
+
+	public void setOrganisation(Organisation organisation) {
+		this.organisation = organisation;
 	}
 
 }

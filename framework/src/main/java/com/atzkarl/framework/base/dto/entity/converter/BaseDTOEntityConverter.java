@@ -55,10 +55,10 @@ public abstract class BaseDTOEntityConverter<D extends BaseDTO, E extends BaseEn
         return mapper.map(dto, entityClass);
     }
 
-    public E toEntity(D dto, E existingEntity) {
-        mapper.map(dto, existingEntity);
-        return existingEntity;
-    }
+//    public E toEntity(D dto, E existingEntity) {
+//        mapper.map(dto, existingEntity);
+//        return existingEntity;
+//    }
 
 //    public List<Revision<Long, D>> fromRevisionEntities(
 //            List<Revision<Long, E>> revisionEntities) {
