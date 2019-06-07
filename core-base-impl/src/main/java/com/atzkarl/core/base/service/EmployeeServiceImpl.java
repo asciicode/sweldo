@@ -36,6 +36,9 @@ public class EmployeeServiceImpl implements EmployeeService {
 		validationService.validate(employeeDTO);
 		Employee entity = getEntity(id);
 		if (entity != null) {
+			if (employeeDTO.getOrganisation().getId() != entity.getOrganisation().getId()) {
+				throw new IllegalStateException("Organisation not the same");
+			}
 			BeanUtils.copyProperties(employeeDTO, entity, "id", "organisation");
 			repository.flush();
 		}
